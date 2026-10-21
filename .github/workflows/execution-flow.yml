@@ -43,7 +43,7 @@ jobs:
           path: test.json
   build:
     needs: test
-    if: ${{needs.test.result == 'success' || needs.test.result == 'failure'}}
+    if: ${{ !cancelled() }}
     runs-on: ubuntu-latest
     steps:
       - name: Get code
